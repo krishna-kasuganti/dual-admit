@@ -43,6 +43,33 @@
       filter: drop-shadow(2px 6px 12px rgba(124,58,237,0.5));
     }
 
+    .hero-grid-reveal { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+
+    @keyframes testimonial-scroll {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
+    }
+    .testimonial-track {
+      display: flex; flex-direction: column;
+      gap: 1.5rem; padding: 0 0 1.5rem;
+      list-style: none; margin: 0;
+      animation: testimonial-scroll linear infinite;
+      will-change: transform;
+    }
+    .testimonial-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 1.5rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.04);
+      cursor: default; user-select: none;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: scale(1.03) translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.12), 0 10px 10px -5px rgba(0,0,0,0.04);
+    }
+
     details > summary { cursor: pointer; list-style: none; }
     details > summary::-webkit-details-marker { display: none; }
     details[open] .faq-chevron { transform: rotate(180deg); }
@@ -68,6 +95,19 @@
 
   <!-- ════════ HERO ════════ -->
   <section class="hero-bg relative overflow-hidden">
+
+    <!-- Revealed grid (follows mouse via mask) -->
+    <div class="hero-grid-reveal" id="hero-reveal-layer">
+      <svg width="100%" height="100%">
+        <defs>
+          <pattern id="grid-reveal" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-reveal)"/>
+      </svg>
+    </div>
+
     <div class="max-w-6xl mx-auto px-8 py-28 flex items-center gap-12" style="min-height:580px;">
       <!-- Left text -->
       <div class="flex-1 relative z-10">
@@ -144,21 +184,21 @@
       <div class="flex-shrink-0" style="width:340px;">
         <div class="grid grid-cols-3 gap-2 mb-2">
           <img src="https://framerusercontent.com/images/BsXKOfuOjHhrV2lYn8NCKJUiNf4.jpg"
-               class="col-span-2 object-cover object-top rounded-xl w-full" style="height:200px;" alt="Sai Maruvada">
+               class="col-span-2 object-cover object-center rounded-xl w-full" style="height:200px;" alt="Sai Maruvada" loading="eager">
           <div class="flex flex-col gap-2">
             <img src="https://framerusercontent.com/images/54gNGz3AAm4ocZQbJvzFdMp6Q.jpeg"
-                 class="object-cover rounded-xl w-full" style="height:97px;" alt="">
+                 class="object-cover object-center rounded-xl w-full" style="height:97px;" alt="" loading="eager">
             <img src="https://framerusercontent.com/images/dfnDl9roq4CtVBUBiXYXBP7i4.jpeg"
-                 class="object-cover rounded-xl w-full" style="height:97px;" alt="">
+                 class="object-cover object-center rounded-xl w-full" style="height:97px;" alt="" loading="eager">
           </div>
         </div>
         <div class="grid grid-cols-3 gap-2">
           <img src="https://framerusercontent.com/images/zqQG4COOoSJQMfqncniVEiSKeY.jpeg"
-               class="object-cover object-top rounded-xl w-full" style="height:130px;" alt="">
+               class="object-cover object-center rounded-xl w-full" style="height:130px;" alt="" loading="eager">
           <img src="https://framerusercontent.com/images/jJ1iqsGn3DaUOCzmEHF6Yja19Zg.jpeg"
-               class="object-cover object-top rounded-xl w-full" style="height:130px;" alt="">
+               class="object-cover object-center rounded-xl w-full" style="height:130px;" alt="" loading="eager">
           <img src="https://framerusercontent.com/images/Xff2EGkC7O4jACU6hBON8pr5nU4.jpg"
-               class="object-cover rounded-xl w-full" style="height:130px;" alt="">
+               class="object-cover object-center rounded-xl w-full" style="height:130px;" alt="" loading="eager">
         </div>
       </div>
 
@@ -231,17 +271,17 @@
       <div class="flex-shrink-0 relative" style="width:340px;">
         <div class="grid grid-cols-3 gap-2 mb-2">
           <img src="https://framerusercontent.com/images/cr7g8DUSm85h5veXMQ7ogY1woY.jpeg"
-               class="col-span-2 object-cover object-top rounded-xl w-full" style="height:200px;" alt="Krishna Kasuganti">
+               class="col-span-2 object-cover object-center rounded-xl w-full" style="height:200px;" alt="Krishna Kasuganti" loading="eager">
           <div class="flex flex-col gap-2">
             <img src="https://framerusercontent.com/images/At8wvsCouQJChFqPxeFIYFQws.jpeg"
-                 class="object-cover object-top rounded-xl w-full" style="height:97px;" alt="">
+                 class="object-cover object-center rounded-xl w-full" style="height:97px;" alt="" loading="eager">
             <img src="https://framerusercontent.com/images/6Y5VPBiLN8jWwrYpufdE3TAWA.jpeg"
-                 class="object-cover rounded-xl w-full" style="height:97px;" alt="">
+                 class="object-cover object-center rounded-xl w-full" style="height:97px;" alt="" loading="eager">
           </div>
         </div>
         <div>
           <img src="https://framerusercontent.com/images/ePh8m5B7CIvR3p6X39i3niu9BU.jpeg"
-               class="object-cover rounded-xl w-full" style="height:130px;" alt="">
+               class="object-cover object-center rounded-xl w-full" style="height:130px;" alt="" loading="eager">
         </div>
         <div class="absolute -bottom-4 -right-4">
           <div class="crystal"></div>
@@ -258,90 +298,191 @@
         What Successful Students<br>Say About Dual Admit
       </h2>
 
-      <div class="grid grid-cols-3 gap-4">
-        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://framerusercontent.com/images/C7dewpXYFViiRQcqvm5rgOdXxYA.jpeg"
-                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Panshul Aeron">
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">Panshul Aeron</p>
-              <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Coca-Cola Scholar Finalist</p>
-            </div>
-          </div>
-          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application &amp; Time Management</div>
-          <div class="star mb-2">★★★★★</div>
-          <p class="text-xs text-gray-500 leading-relaxed">I was applying to UNC while going through the Coke Scholars process, which was a lot to manage. Dual Admit helped me stay consistent across both, and making finalist was something I never thought possible. Their support made a real difference.</p>
+      <div class="flex justify-center gap-6"
+           style="max-height:580px;overflow:hidden;
+                  -webkit-mask-image:linear-gradient(to bottom,transparent,black 15%,black 85%,transparent);
+                  mask-image:linear-gradient(to bottom,transparent,black 15%,black 85%,transparent);">
+
+        <!-- ─ Column 1 (15s): Panshul · Tianxi ─ -->
+        <div style="width:320px;">
+          <ul class="testimonial-track" style="animation-duration:15s;">
+
+            <li class="testimonial-card">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application &amp; Time Management</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I was applying to UNC while going through the Coke Scholars process, which was a lot to manage. Dual Admit helped me stay consistent across both, and making finalist was something I never thought possible. Their support made a real difference.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/C7dewpXYFViiRQcqvm5rgOdXxYA.jpeg" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Panshul Aeron">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Panshul Aeron</p>
+                  <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Coca-Cola Scholar Finalist</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonial-card">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application Presentation</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I came in with a list of activities and achievements but no real thread connecting them. After working through my story with Dual Admit, everything clicked into place. Emory felt like the right fit and I'm so excited to go.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/2J5vmdMG7DPOc2nLCYgk5ksp0w4.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Tianxi Liang">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Tianxi Liang</p>
+                  <p class="text-xs text-gray-400 mt-0.5">Emory University</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- duplicates for seamless loop -->
+            <li class="testimonial-card" aria-hidden="true">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application &amp; Time Management</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I was applying to UNC while going through the Coke Scholars process, which was a lot to manage. Dual Admit helped me stay consistent across both, and making finalist was something I never thought possible. Their support made a real difference.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/C7dewpXYFViiRQcqvm5rgOdXxYA.jpeg" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Panshul Aeron</p>
+                  <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Coca-Cola Scholar Finalist</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonial-card" aria-hidden="true">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application Presentation</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I came in with a list of activities and achievements but no real thread connecting them. After working through my story with Dual Admit, everything clicked into place. Emory felt like the right fit and I'm so excited to go.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/2J5vmdMG7DPOc2nLCYgk5ksp0w4.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Tianxi Liang</p>
+                  <p class="text-xs text-gray-400 mt-0.5">Emory University</p>
+                </div>
+              </div>
+            </li>
+
+          </ul>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://framerusercontent.com/images/2J5vmdMG7DPOc2nLCYgk5ksp0w4.png"
-                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Tianxi Liang">
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">Tianxi Liang</p>
-              <p class="text-xs text-gray-400 mt-0.5">Emory University</p>
-            </div>
-          </div>
-          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application Presentation</div>
-          <div class="star mb-2">★★★★★</div>
-          <p class="text-xs text-gray-500 leading-relaxed">I came in with a list of activities and achievements but no real thread connecting them. After working through my story with Dual Admit, everything clicked into place. Emory felt like the right fit and I'm so excited to go.</p>
+        <!-- ─ Column 2 (19s): Dylan · Aarush ─ -->
+        <div style="width:320px;">
+          <ul class="testimonial-track" style="animation-duration:19s;">
+
+            <li class="testimonial-card">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Interview Preparation</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I was guided through my application to Goodnight Scholars, and the interview prep really helped me feel confident and prepared. Making finalist for such a competitive program was incredible.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/g97BHbnFkiBtSNW5G4RHFHFFS3s.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Dylan Shah">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Dylan Shah</p>
+                  <p class="text-xs text-gray-400 mt-0.5">NC State Goodnight Scholar</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonial-card">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Pitching Advice &amp; Scheduling</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">Dual Admit helped me find and compete in more pitch competitions, which I believe played a big role in my assured admit. It also improved my time management and helped me build a real schedule.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/lg0Wdfn4rVwKxXQf3JPdC5mc.jpeg" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Aarush Kathrani">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Aarush Kathrani</p>
+                  <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Kenan Flagler Assured</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- duplicates -->
+            <li class="testimonial-card" aria-hidden="true">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Interview Preparation</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I was guided through my application to Goodnight Scholars, and the interview prep really helped me feel confident and prepared. Making finalist for such a competitive program was incredible.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/g97BHbnFkiBtSNW5G4RHFHFFS3s.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Dylan Shah</p>
+                  <p class="text-xs text-gray-400 mt-0.5">NC State Goodnight Scholar Finalist</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonial-card" aria-hidden="true">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Pitching Advice &amp; Scheduling</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">Dual Admit helped me find and compete in more pitch competitions, which I believe played a big role in my assured admit. It also improved my time management and helped me build a real schedule.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/lg0Wdfn4rVwKxXQf3JPdC5mc.jpeg" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Aarush Kathrani</p>
+                  <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Kenan Flagler Assured</p>
+                </div>
+              </div>
+            </li>
+
+          </ul>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://framerusercontent.com/images/g97BHbnFkiBtSNW5G4RHFHFFS3s.png"
-                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Dylan Shah">
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">Dylan Shah</p>
-              <p class="text-xs text-gray-400 mt-0.5">NC State Goodnight Scholar Finalist</p>
-            </div>
-          </div>
-          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Interview Preparation</div>
-          <div class="star mb-2">★★★★★</div>
-          <p class="text-xs text-gray-500 leading-relaxed">I was guided through my application to Goodnight Scholars, and the interview prep really helped me feel confident and prepared. Making finalist for such a competitive program was incredible.</p>
+        <!-- ─ Column 3 (17s): Ibrahim · Shaurya ─ -->
+        <div style="width:320px;">
+          <ul class="testimonial-track" style="animation-duration:17s;">
+
+            <li class="testimonial-card">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Sports + Honors</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I didn't know how to differentiate myself for honors applications. Sai and Krishna helped me integrate my athletic background into my academic goals in a way that resonated with the honors program.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/1DP2b8Q0bpE1cxyoyX68cpEjDs.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Ibrahim Viqas">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Ibrahim Viqas</p>
+                  <p class="text-xs text-gray-400 mt-0.5">UNC Honors Program</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonial-card">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Bridging Music &amp; Technical Sides</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">Sai and Krishna helped me connect my musical interests with my technical skills, which led me to pursue and get into mechanical engineering at NC State. I never thought that connection would matter—it made all the difference.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/R4yysjBrLy2OzOcA41GKW0LEQIk.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Shaurya Surve">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Shaurya Surve</p>
+                  <p class="text-xs text-gray-400 mt-0.5">NC State Mechanical Engineering</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- duplicates -->
+            <li class="testimonial-card" aria-hidden="true">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Sports + Honors</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">I didn't know how to differentiate myself for honors applications. Sai and Krishna helped me integrate my athletic background into my academic goals in a way that resonated with the honors program.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/1DP2b8Q0bpE1cxyoyX68cpEjDs.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Ibrahim Viqas</p>
+                  <p class="text-xs text-gray-400 mt-0.5">UNC Honors Program</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonial-card" aria-hidden="true">
+              <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Bridging Music &amp; Technical Sides</div>
+              <div class="star mb-3">★★★★★</div>
+              <p class="text-xs text-gray-500 leading-relaxed mb-5">Sai and Krishna helped me connect my musical interests with my technical skills, which led me to pursue and get into mechanical engineering at NC State. I never thought that connection would matter—it made all the difference.</p>
+              <div class="flex items-center gap-3">
+                <img src="https://framerusercontent.com/images/R4yysjBrLy2OzOcA41GKW0LEQIk.png" class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="">
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">Shaurya Surve</p>
+                  <p class="text-xs text-gray-400 mt-0.5">NC State Mechanical Engineering</p>
+                </div>
+              </div>
+            </li>
+
+          </ul>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://framerusercontent.com/images/lg0Wdfn4rVwKxXQf3JPdC5mc.jpeg"
-                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Aarush Kathrani">
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">Aarush Kathrani</p>
-              <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Kenan Flagler Assured</p>
-            </div>
-          </div>
-          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Pitching Advice &amp; Scheduling</div>
-          <div class="star mb-2">★★★★★</div>
-          <p class="text-xs text-gray-500 leading-relaxed">Dual Admit helped me find and compete in more pitch competitions, which I believe played a big role in my assured admit. It also improved my time management and helped me build a real schedule.</p>
-        </div>
-
-        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://framerusercontent.com/images/1DP2b8Q0bpE1cxyoyX68cpEjDs.png"
-                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Ibrahim Viqas">
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">Ibrahim Viqas</p>
-              <p class="text-xs text-gray-400 mt-0.5">UNC Honors Program</p>
-            </div>
-          </div>
-          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Sports + Honors</div>
-          <div class="star mb-2">★★★★★</div>
-          <p class="text-xs text-gray-500 leading-relaxed">I didn't know how to differentiate myself for honors applications. Sai and Krishna helped me integrate my athletic background into my academic goals in a way that resonated with the honors program.</p>
-        </div>
-
-        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://framerusercontent.com/images/R4yysjBrLy2OzOcA41GKW0LEQIk.png"
-                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Shaurya Surve">
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-tight">Shaurya Surve</p>
-              <p class="text-xs text-gray-400 mt-0.5">NC State Mechanical Engineering</p>
-            </div>
-          </div>
-          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Bridging Music &amp; Technical Sides</div>
-          <div class="star mb-2">★★★★★</div>
-          <p class="text-xs text-gray-500 leading-relaxed">Sai and Krishna helped me connect my musical interests with my technical skills, which led me to pursue and get into mechanical engineering at NC State. I never thought that connection would matter—it made all the difference.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -519,5 +660,26 @@
     </div>
   </footer>
 
+  <script>
+    (function() {
+      const patReveal = document.getElementById('grid-reveal');
+      const revealEl  = document.getElementById('hero-reveal-layer');
+      const heroSection = document.querySelector('.hero-bg');
+
+      heroSection.addEventListener('mousemove', function(e) {
+        const rect = heroSection.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const mask = `radial-gradient(300px circle at ${mx}px ${my}px, black, transparent)`;
+        revealEl.style.opacity = '0.4';
+        revealEl.style.maskImage = mask;
+        revealEl.style.webkitMaskImage = mask;
+      });
+
+      heroSection.addEventListener('mouseleave', function() {
+        revealEl.style.opacity = '0';
+      });
+    })();
+  </script>
 </body>
 </html>
