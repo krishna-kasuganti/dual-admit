@@ -7,7 +7,7 @@ const path = require('path');
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
   const filePath = path.resolve(__dirname, 'index.html');
   await page.goto(`file://${filePath}`, { waitUntil: 'networkidle0', timeout: 30000 });
-  await page.screenshot({ path: path.resolve(__dirname, 'screenshot.png'), fullPage: true });
+  await page.screenshot({ path: path.resolve(__dirname, 'refs/screenshot.png'), fullPage: true });
   await browser.close();
   console.log('Screenshot saved.');
 })();

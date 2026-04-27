@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const path = require('path');
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
@@ -87,8 +88,8 @@ const puppeteer = require('puppeteer');
   // Take a screenshot of the Framer site for reference
   await page.evaluate(() => window.scrollTo(0, 0));
   await new Promise(r => setTimeout(r, 500));
-  await page.screenshot({ path: 'framer_reference.png', fullPage: true });
-  console.log('\nFramer screenshot saved to framer_reference.png');
+  await page.screenshot({ path: path.resolve(__dirname, 'refs/framer_reference.png'), fullPage: true });
+  console.log('\nFramer screenshot saved to refs/framer_reference.png');
 
   await browser.close();
 })();

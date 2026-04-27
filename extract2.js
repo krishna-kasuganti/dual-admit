@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const path = require('path');
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
@@ -60,12 +61,12 @@ const puppeteer = require('puppeteer');
     if (el) el.scrollIntoView();
   });
   await new Promise(r => setTimeout(r, 800));
-  await page.screenshot({ path: 'framer_testimonials.png', clip: { x: 0, y: 0, width: 1440, height: 900 } });
+  await page.screenshot({ path: path.resolve(__dirname, 'refs/framer_testimonials.png'), clip: { x: 0, y: 0, width: 1440, height: 900 } });
 
   // Also screenshot the hero to identify main photos
   await page.evaluate(() => window.scrollTo(0, 0));
   await new Promise(r => setTimeout(r, 500));
-  await page.screenshot({ path: 'framer_hero.png', clip: { x: 0, y: 0, width: 1440, height: 900 } });
+  await page.screenshot({ path: path.resolve(__dirname, 'refs/framer_hero.png'), clip: { x: 0, y: 0, width: 1440, height: 900 } });
 
   // Get hero images specifically
   const heroImages = await page.evaluate(() => {

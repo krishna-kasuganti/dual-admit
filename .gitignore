@@ -1,0 +1,8 @@
+# Ignore the heavy toolbox
+node_modules/
+
+# Hide the entire "refs" folder and everything inside it
+refs/
+
+# Hide specific system clutter
+.DS_Store
