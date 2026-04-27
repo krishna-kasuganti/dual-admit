@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dual Admit — College Admissions Counseling</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+    .hero-bg {
+      background: linear-gradient(150deg, #6366f1 0%, #4f46e5 30%, #3730a3 65%, #1e1b4b 100%);
+    }
+
+    .star { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
+
+    .glass-cylinder {
+      width: 72px; height: 110px;
+      background: linear-gradient(135deg, rgba(147,197,253,0.95) 0%, rgba(96,165,250,0.85) 30%, rgba(59,130,246,0.7) 60%, rgba(37,99,235,0.5) 100%);
+      border-radius: 50% 50% 40% 40% / 15% 15% 10% 10%;
+      position: relative;
+      transform: rotate(-10deg) perspective(200px) rotateY(-15deg);
+      box-shadow: inset -6px -10px 20px rgba(30,58,138,0.4), inset 4px 4px 12px rgba(147,197,253,0.5), 0 8px 24px rgba(59,130,246,0.3);
+    }
+    .glass-cylinder::before {
+      content: ''; position: absolute;
+      top: -10px; left: 4px; right: 4px; height: 20px;
+      background: rgba(186,230,253,0.9); border-radius: 50%;
+    }
+    .glass-cylinder::after {
+      content: ''; position: absolute;
+      top: 8px; left: 12px; width: 10px; height: 60px;
+      background: rgba(255,255,255,0.25); border-radius: 10px; transform: rotate(5deg);
+    }
+
+    .crystal {
+      width: 64px; height: 80px;
+      background: linear-gradient(160deg, #c4b5fd 0%, #a78bfa 25%, #7c3aed 60%, #4c1d95 100%);
+      clip-path: polygon(50% 0%, 100% 38%, 78% 100%, 22% 100%, 0% 38%);
+      filter: drop-shadow(2px 6px 12px rgba(124,58,237,0.5));
+    }
+
+    details > summary { cursor: pointer; list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chevron { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="bg-white overflow-x-hidden">
+
+  <!-- ════════ NAV ════════ -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-8 py-3.5 flex items-center justify-between">
+      <a href="#" class="font-black text-gray-900 text-base tracking-[0.2em] uppercase">Dual Admit</a>
+      <div class="flex items-center gap-7">
+        <a href="#counselors" class="text-sm text-gray-500 hover:text-gray-900 transition font-medium">Counselors</a>
+        <a href="#about" class="text-sm text-gray-500 hover:text-gray-900 transition font-medium">About</a>
+        <a href="mailto:dualadmitcounseling@gmail.com" class="text-sm text-gray-500 hover:text-gray-900 transition font-medium">Contact</a>
+      </div>
+      <a href="https://zcal.co/dual-admit/intro" target="_blank"
+         class="bg-indigo-600 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-indigo-700 transition shadow-sm">
+        Free 15 Minute Consultation
+      </a>
+    </div>
+  </nav>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero-bg relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-8 py-28 flex items-center gap-12" style="min-height:580px;">
+      <!-- Left text -->
+      <div class="flex-1 relative z-10">
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-widest">
+          Dual Admit Counseling
+        </div>
+        <h1 class="font-black text-white leading-none tracking-tight mb-5" style="font-size:66px;line-height:1.04;">
+          Book a Free Session<br>So You Can Get Into<br><em>Your Dream School.</em>
+        </h1>
+        <p class="text-white/70 text-[15px] leading-relaxed mb-9 max-w-xs">
+          Personalized college admissions counseling from students who've been through it and made it out succesfully.
+        </p>
+        <a href="https://zcal.co/dual-admit/intro" target="_blank"
+           class="inline-block bg-white text-indigo-900 font-bold text-sm px-7 py-3 rounded-xl shadow hover:bg-indigo-50 transition">
+          Free 15 Minute Consultation
+        </a>
+      </div>
+
+      <!-- Right circular photos — Krishna (top) + Sai (bottom) -->
+      <div class="flex-shrink-0 relative" style="width:360px;height:340px;">
+        <img src="https://framerusercontent.com/images/uvhTHHDrjPD7bgzvwxYPAzlfNe4.png"
+             class="rounded-full object-cover object-top border-4 border-white/20 absolute top-0 right-0 shadow-2xl"
+             style="width:230px;height:230px;" alt="Krishna Kasuganti">
+        <img src="https://framerusercontent.com/images/IsmN5haTCPEZ1XrljaeJJy8KO5I.png"
+             class="rounded-full object-cover object-top border-4 border-white/20 absolute bottom-0 right-20 shadow-xl"
+             style="width:170px;height:170px;" alt="Sai Maruvada">
+      </div>
+    </div>
+
+    <!-- Decorative glass shape -->
+    <div class="absolute bottom-10 right-28">
+      <div class="glass-cylinder"></div>
+    </div>
+  </section>
+
+  <!-- ════════ STATS STRIP ════════ -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-center gap-1 flex-wrap">
+      <div class="flex items-center gap-2 px-5 py-2 text-gray-600 text-xs font-medium">
+        <span class="text-indigo-600 font-black text-base">3%</span> UT Austin McCombs Acceptance Rate
+      </div>
+      <div class="w-px h-5 bg-gray-200"></div>
+      <div class="flex items-center gap-2 px-5 py-2 text-gray-600 text-xs font-medium">
+        <span class="text-indigo-600 font-black text-base">5%</span> Duke Acceptance Rate
+      </div>
+      <div class="w-px h-5 bg-gray-200"></div>
+      <div class="flex items-center gap-2 px-5 py-2 text-gray-600 text-xs font-medium">
+        <span class="text-indigo-600 font-black text-base">#6</span> Nation for Business (UT Austin)
+      </div>
+      <div class="w-px h-5 bg-gray-200"></div>
+      <div class="flex items-center gap-2 px-5 py-2 text-gray-600 text-xs font-medium">
+        <span class="text-indigo-600 font-black text-base">#7</span> Nation Overall (Duke)
+      </div>
+      <div class="w-px h-5 bg-gray-200"></div>
+      <div class="flex items-center gap-2 px-5 py-2 text-gray-600 text-xs font-medium">
+        <span class="text-indigo-600 font-black text-base">Free</span> 15-Minute Intro Session
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ COUNSELORS INTRO ════════ -->
+  <section class="py-12 text-center" id="counselors">
+    <div class="max-w-6xl mx-auto px-8">
+      <p class="text-xs text-gray-400 uppercase tracking-widest font-medium mb-3">Our Counselors</p>
+      <h2 class="font-bold text-gray-900 mb-3 leading-tight" style="font-size:36px;">Work With Counselors<br>Who've Been There</h2>
+      <p class="text-gray-500 text-sm leading-relaxed">Sai and Krishna both got into elite programs.<br>Now they help you do the same.</p>
+    </div>
+  </section>
+
+  <!-- ════════ SAI MARUVADA ════════ -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-8 flex gap-10 items-start">
+      <!-- Photo grid -->
+      <div class="flex-shrink-0" style="width:340px;">
+        <div class="grid grid-cols-3 gap-2 mb-2">
+          <img src="https://framerusercontent.com/images/BsXKOfuOjHhrV2lYn8NCKJUiNf4.jpg"
+               class="col-span-2 object-cover object-top rounded-xl w-full" style="height:200px;" alt="Sai Maruvada">
+          <div class="flex flex-col gap-2">
+            <img src="https://framerusercontent.com/images/54gNGz3AAm4ocZQbJvzFdMp6Q.jpeg"
+                 class="object-cover rounded-xl w-full" style="height:97px;" alt="">
+            <img src="https://framerusercontent.com/images/dfnDl9roq4CtVBUBiXYXBP7i4.jpeg"
+                 class="object-cover rounded-xl w-full" style="height:97px;" alt="">
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <img src="https://framerusercontent.com/images/zqQG4COOoSJQMfqncniVEiSKeY.jpeg"
+               class="object-cover object-top rounded-xl w-full" style="height:130px;" alt="">
+          <img src="https://framerusercontent.com/images/jJ1iqsGn3DaUOCzmEHF6Yja19Zg.jpeg"
+               class="object-cover object-top rounded-xl w-full" style="height:130px;" alt="">
+          <img src="https://framerusercontent.com/images/Xff2EGkC7O4jACU6hBON8pr5nU4.jpg"
+               class="object-cover rounded-xl w-full" style="height:130px;" alt="">
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="flex-1 pt-2">
+        <div class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">The Recovery Route</div>
+        <h3 class="font-bold text-gray-900 mb-3" style="font-size:22px;">Sai Maruvada</h3>
+
+        <div class="flex items-center gap-2 mb-2 flex-wrap">
+          <span class="bg-gray-900 text-white text-xs px-3 py-1 rounded-full font-semibold">McCombs @ UT Austin</span>
+          <span class="text-sm text-gray-500 font-medium">#6 in the Nation for Business</span>
+        </div>
+        <div class="flex items-center gap-2 mb-5 flex-wrap">
+          <span class="text-sm text-gray-600 font-medium">Sai Applied As:</span>
+          <span class="border border-indigo-400 text-indigo-600 text-xs px-2.5 py-1 rounded-full font-medium">International Student</span>
+          <span class="bg-amber-100 text-amber-700 text-xs px-2.5 py-1 rounded-full font-medium">Bottom 58% of Class</span>
+          <span class="bg-red-100 text-red-700 text-xs px-2.5 py-1 rounded-full font-medium">9 B's and 1 C!</span>
+        </div>
+
+        <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 mb-5">
+          <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-1.5">3% Acceptance Rate</p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Despite being in the bottom half of his class with grades that seemed to disqualify him, Sai found the strategy that got him into one of America's most selective business programs and now shares that exact playbook with students who think they've already lost their shot.
+          </p>
+        </div>
+
+        <a href="https://zcal.co/dual-admit/intro" target="_blank"
+           class="inline-block bg-gray-900 text-white text-sm font-semibold px-6 py-2.5 rounded-xl hover:bg-gray-800 transition">
+          Find Out How He Got In →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ KRISHNA KASUGANTI ════════ -->
+  <section class="py-16 relative overflow-hidden">
+    <div class="absolute right-0 top-0 bottom-0" style="width:43%;background:#ede9fe;"></div>
+    <div class="max-w-6xl mx-auto px-8 flex gap-10 items-start relative">
+      <!-- Text -->
+      <div class="flex-1 pt-2">
+        <div class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">The Foundational Route</div>
+        <h3 class="font-bold text-gray-900 mb-3" style="font-size:22px;">Krishna Kasuganti</h3>
+
+        <div class="flex items-center gap-2 mb-2 flex-wrap">
+          <span class="bg-gray-900 text-white text-xs px-3 py-1 rounded-full font-semibold">CS + Math @ Duke</span>
+          <span class="text-sm text-gray-500 font-medium">#7 in the Nation Overall</span>
+        </div>
+        <div class="flex items-center gap-2 mb-5 flex-wrap">
+          <span class="text-sm text-gray-600 font-medium">Krishna Applied As:</span>
+          <span class="border border-indigo-400 text-indigo-600 text-xs px-2.5 py-1 rounded-full font-medium">Rank 3 / 627</span>
+          <span class="bg-emerald-100 text-emerald-700 text-xs px-2.5 py-1 rounded-full font-medium">All A's</span>
+          <span class="bg-blue-100 text-blue-700 text-xs px-2.5 py-1 rounded-full font-medium">1560 SAT</span>
+          <span class="bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-full font-medium">16 AP Classes</span>
+        </div>
+
+        <div class="bg-white border border-gray-100 rounded-2xl p-4 mb-5 shadow-sm">
+          <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-1.5">5% Acceptance Rate</p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Krishna built his application from the ground up with the right strategy positioning his academics, extracurriculars, and story to stand out at a school that rejects 95% of applicants. Now he helps students build that same foundation.
+          </p>
+        </div>
+
+        <a href="https://zcal.co/dual-admit/intro" target="_blank"
+           class="inline-block bg-gray-900 text-white text-sm font-semibold px-6 py-2.5 rounded-xl hover:bg-gray-800 transition">
+          Find Out How He Got In →
+        </a>
+      </div>
+
+      <!-- Photo grid — Krishna only -->
+      <div class="flex-shrink-0 relative" style="width:340px;">
+        <div class="grid grid-cols-3 gap-2 mb-2">
+          <img src="https://framerusercontent.com/images/cr7g8DUSm85h5veXMQ7ogY1woY.jpeg"
+               class="col-span-2 object-cover object-top rounded-xl w-full" style="height:200px;" alt="Krishna Kasuganti">
+          <div class="flex flex-col gap-2">
+            <img src="https://framerusercontent.com/images/At8wvsCouQJChFqPxeFIYFQws.jpeg"
+                 class="object-cover object-top rounded-xl w-full" style="height:97px;" alt="">
+            <img src="https://framerusercontent.com/images/6Y5VPBiLN8jWwrYpufdE3TAWA.jpeg"
+                 class="object-cover rounded-xl w-full" style="height:97px;" alt="">
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <img src="https://framerusercontent.com/images/ePh8m5B7CIvR3p6X39i3niu9BU.jpeg"
+               class="object-cover rounded-xl w-full" style="height:130px;" alt="">
+          <img src="https://framerusercontent.com/images/At8wvsCouQJChFqPxeFIYFQws.jpeg"
+               class="object-cover object-top rounded-xl w-full" style="height:130px;" alt="">
+          <img src="https://framerusercontent.com/images/cr7g8DUSm85h5veXMQ7ogY1woY.jpeg"
+               class="object-cover object-top rounded-xl w-full" style="height:130px;" alt="">
+        </div>
+        <div class="absolute -right-4 top-2">
+          <div class="crystal"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TESTIMONIALS ════════ -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-8">
+      <p class="text-center text-xs text-gray-400 uppercase tracking-widest font-medium mb-4">Student Outcomes</p>
+      <h2 class="font-bold text-center text-gray-900 mb-12 leading-tight" style="font-size:30px;">
+        What Successful Students<br>Say About Dual Admit
+      </h2>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://framerusercontent.com/images/C7dewpXYFViiRQcqvm5rgOdXxYA.jpeg"
+                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Panshul Aeron">
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-tight">Panshul Aeron</p>
+              <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Coca-Cola Scholar Finalist</p>
+            </div>
+          </div>
+          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application &amp; Time Management</div>
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-xs text-gray-500 leading-relaxed">I was applying to UNC while going through the Coke Scholars process, which was a lot to manage. Dual Admit helped me stay consistent across both, and making finalist was something I never thought possible. Their support made a real difference.</p>
+        </div>
+
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://framerusercontent.com/images/2J5vmdMG7DPOc2nLCYgk5ksp0w4.png"
+                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Tianxi Liang">
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-tight">Tianxi Liang</p>
+              <p class="text-xs text-gray-400 mt-0.5">Emory University</p>
+            </div>
+          </div>
+          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Application Presentation</div>
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-xs text-gray-500 leading-relaxed">I came in with a list of activities and achievements but no real thread connecting them. After working through my story with Dual Admit, everything clicked into place. Emory felt like the right fit and I'm so excited to go.</p>
+        </div>
+
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://framerusercontent.com/images/g97BHbnFkiBtSNW5G4RHFHFFS3s.png"
+                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Dylan Shah">
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-tight">Dylan Shah</p>
+              <p class="text-xs text-gray-400 mt-0.5">NC State Goodnight Scholar Finalist</p>
+            </div>
+          </div>
+          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Interview Preparation</div>
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-xs text-gray-500 leading-relaxed">I was guided through my application to Goodnight Scholars, and the interview prep really helped me feel confident and prepared. Making finalist for such a competitive program was incredible.</p>
+        </div>
+
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://framerusercontent.com/images/lg0Wdfn4rVwKxXQf3JPdC5mc.jpeg"
+                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Aarush Kathrani">
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-tight">Aarush Kathrani</p>
+              <p class="text-xs text-gray-400 mt-0.5">UNC Chapel Hill — Kenan Flagler Assured</p>
+            </div>
+          </div>
+          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Pitching Advice &amp; Scheduling</div>
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-xs text-gray-500 leading-relaxed">Dual Admit helped me find and compete in more pitch competitions, which I believe played a big role in my assured admit. It also improved my time management and helped me build a real schedule.</p>
+        </div>
+
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://framerusercontent.com/images/1DP2b8Q0bpE1cxyoyX68cpEjDs.png"
+                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Ibrahim Viqas">
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-tight">Ibrahim Viqas</p>
+              <p class="text-xs text-gray-400 mt-0.5">UNC Honors Program</p>
+            </div>
+          </div>
+          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Sports + Honors</div>
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-xs text-gray-500 leading-relaxed">I didn't know how to differentiate myself for honors applications. Sai and Krishna helped me integrate my athletic background into my academic goals in a way that resonated with the honors program.</p>
+        </div>
+
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <img src="https://framerusercontent.com/images/R4yysjBrLy2OzOcA41GKW0LEQIk.png"
+                 class="w-10 h-10 rounded-full object-cover flex-shrink-0" alt="Shaurya Surve">
+            <div>
+              <p class="text-sm font-semibold text-gray-900 leading-tight">Shaurya Surve</p>
+              <p class="text-xs text-gray-400 mt-0.5">NC State Mechanical Engineering</p>
+            </div>
+          </div>
+          <div class="inline-block bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2">Bridging Music &amp; Technical Sides</div>
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-xs text-gray-500 leading-relaxed">Sai and Krishna helped me connect my musical interests with my technical skills, which led me to pursue and get into mechanical engineering at NC State. I never thought that connection would matter—it made all the difference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ EVERYTHING YOU NEED ════════ -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-8 text-center">
+      <h2 class="font-bold text-gray-900 mb-3" style="font-size:30px;">Everything You Need</h2>
+      <p class="text-gray-500 text-sm mb-12 leading-relaxed">Personalized college counseling to develop the edge<br>you need to get into your dream school.</p>
+
+      <div class="grid grid-cols-3 gap-4 text-left">
+        <div class="bg-gray-950 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-3">Application Strategy</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">We help you build a cohesive application narrative that connects your academics, activities, and story. No more scattered resumes. Just one powerful thread that admissions officers actually remember.</p>
+        </div>
+
+        <div class="bg-gray-950 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-3">Essay &amp; Writing Coaching</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">From Common App to supplementals, we craft essays that are authentically you and strategically sharp. Our counselors know what top schools look for because they got in themselves.</p>
+        </div>
+
+        <div class="bg-gray-950 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-3">Interview Preparation</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">From scholarship panels to honors college conversations, we run realistic mock sessions and give targeted feedback so you walk in confident and walk out memorable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section class="py-20" style="background:#eef0fb;">
+    <div class="max-w-6xl mx-auto px-8 flex gap-16 items-start">
+      <!-- Left CTA -->
+      <div class="flex-shrink-0" style="width:260px;">
+        <p class="text-xs text-indigo-500 font-semibold uppercase tracking-widest mb-3">Have Questions?</p>
+        <h3 class="font-bold text-gray-900 mb-3 leading-snug" style="font-size:22px;">Answers to common questions to help you understand the process</h3>
+        <p class="text-gray-500 text-sm mb-6">and how we can work together</p>
+        <a href="mailto:dualadmitcounseling@gmail.com"
+           class="inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-gray-800 transition">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Email Us
+        </a>
+      </div>
+
+      <!-- Right FAQ accordion -->
+      <div class="flex-1">
+        <p class="text-sm font-semibold text-gray-400 mb-5">We're here to help you</p>
+        <div class="space-y-3">
+          <details class="border border-gray-200 rounded-2xl bg-white overflow-hidden" open>
+            <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-gray-900 text-sm">
+              What's your typical project timeline?
+              <svg class="faq-chevron w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5"><p class="text-sm text-gray-500 leading-relaxed">Timelines vary based on your goals and where you are in the process. Some students work with us over several months, while others book sessions for specific parts of their application.</p></div>
+          </details>
+
+          <details class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-gray-900 text-sm">
+              Do you offer revisions?
+              <svg class="faq-chevron w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5"><p class="text-sm text-gray-500 leading-relaxed">Yes. We work with you iteratively especially on essays. Great writing takes multiple passes, and we're with you through every round until it's right.</p></div>
+          </details>
+
+          <details class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-gray-900 text-sm">
+              What do you need from me to get started?
+              <svg class="faq-chevron w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5"><p class="text-sm text-gray-500 leading-relaxed">Just book a free call, and we'll take care of the rest. No prep required! We'll walk you through everything during the intro session.</p></div>
+          </details>
+
+          <details class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-gray-900 text-sm">
+              Can you work with my existing materials?
+              <svg class="faq-chevron w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5"><p class="text-sm text-gray-500 leading-relaxed">Absolutely. If you have draft essays, a resume, or a school list already started, we work from where you are whether that is early planning or last-minute polish.</p></div>
+          </details>
+
+          <details class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-gray-900 text-sm">
+              What makes Dual Admit different?
+              <svg class="faq-chevron w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5"><p class="text-sm text-gray-500 leading-relaxed">We're not career counselors. We're recent students who went through the exact same process and got into schools like Duke and UT Austin. We know what works because we lived it.</p></div>
+          </details>
+
+          <details class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-gray-900 text-sm">
+              Do you provide support beyond essays?
+              <svg class="faq-chevron w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5"><p class="text-sm text-gray-500 leading-relaxed">Yes! Scholarship applications, honors college essays, pitch competition prep, time management, and full application strategy. Essays are just one piece of the puzzle.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ BOOK A CALL CTA ════════ -->
+  <section class="py-20 text-center border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-8">
+      <p class="text-xs text-gray-400 uppercase tracking-widest font-medium mb-3">Start Today</p>
+      <h2 class="font-bold text-gray-900 mb-5 leading-tight" style="font-size:42px;">Book a free call,<br>and we'll take care<br>of the rest.</h2>
+      <p class="text-gray-500 text-sm mb-10 max-w-sm mx-auto leading-relaxed">
+        A 15-minute conversation can change the direction of your application. No commitment, no pressure—just real guidance from people who've been there.
+      </p>
+      <a href="https://zcal.co/dual-admit/intro" target="_blank"
+         class="inline-block bg-gray-900 text-white text-sm font-bold px-10 py-3.5 rounded-xl hover:bg-gray-800 transition shadow-sm">
+        Book a Call
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="py-16" style="background:#0a0a0a;">
+    <div class="max-w-6xl mx-auto px-8">
+      <div class="flex gap-16 mb-12">
+        <div class="flex-shrink-0" style="width:220px;">
+          <h3 class="text-white font-black text-base mb-2 tracking-[0.2em] uppercase">Dual Admit</h3>
+          <p class="text-gray-500 text-xs leading-relaxed mb-6">College admissions counseling from students who've done it...and now can help you do it too.</p>
+          <a href="https://www.instagram.com/dualadmit/" target="_blank"
+             class="w-8 h-8 bg-gray-800 rounded-lg inline-flex items-center justify-center text-gray-400 hover:text-white transition">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+
+        <div class="flex-1 grid grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-white text-xs font-semibold mb-4 uppercase tracking-wider">Navigate</h4>
+            <ul class="space-y-2 text-xs text-gray-500">
+              <li><a href="#counselors" class="hover:text-white transition">Counselors</a></li>
+              <li><a href="https://humorous-triceratops-223716.framer.app/about" target="_blank" class="hover:text-white transition">About</a></li>
+              <li><a href="https://humorous-triceratops-223716.framer.app/contact" target="_blank" class="hover:text-white transition">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white text-xs font-semibold mb-4 uppercase tracking-wider">Book</h4>
+            <ul class="space-y-2 text-xs text-gray-500">
+              <li><a href="https://zcal.co/dual-admit/intro" target="_blank" class="hover:text-white transition">Free Consultation</a></li>
+              <li><a href="mailto:dualadmitcounseling@gmail.com" class="hover:text-white transition">Email Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white text-xs font-semibold mb-4 uppercase tracking-wider">Social</h4>
+            <ul class="space-y-2 text-xs text-gray-500">
+              <li><a href="https://www.instagram.com/dualadmit/" target="_blank" class="hover:text-white transition">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t pt-6 space-y-2" style="border-color:#1f2937;">
+        <p class="text-xs text-gray-600">© 2025 Dual Admit. All rights reserved.</p>
+        <p class="text-xs text-gray-700 max-w-2xl leading-relaxed">Dual Admit provides college admissions guidance and advising services. Fees are for the time, expertise, and coaching provided. We do not guarantee any specific admissions decision, outcome, or result, including admission to any college or university. All outcomes depend on the client's individual effort and factors beyond our control.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
