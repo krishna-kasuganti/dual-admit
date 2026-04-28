@@ -73,6 +73,50 @@
     details > summary { cursor: pointer; list-style: none; }
     details > summary::-webkit-details-marker { display: none; }
     details[open] .faq-chevron { transform: rotate(180deg); }
+
+    /* ── Everything You Need ── */
+    #services-scroll-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f5f3ff 45%, #eef2ff 70%, #ffffff 100%);
+    }
+    #services-card-wrapper {
+      will-change: transform;
+      transform-origin: center top;
+      transform-style: preserve-3d;
+    }
+    /* Lift wrapper owns translateY so it never fights the JS rotateX/scale on the parent */
+    .sc-lift {
+      border-radius: 1.25rem;
+      transition: transform 0.32s ease;
+    }
+    .sc-lift:hover { transform: translateY(-10px); }
+    /* Card owns only border + shadow — no transform at all */
+    .sc-card {
+      height: 100%;
+      background: rgba(255,255,255,0.92);
+      border: 1.5px solid #e9d5ff;
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 24px -4px rgba(109,40,217,0.09), 0 2px 8px -2px rgba(109,40,217,0.05);
+      transition: box-shadow 0.32s ease, border-color 0.32s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .sc-lift:hover .sc-card {
+      box-shadow: 0 20px 44px -8px rgba(109,40,217,0.22), 0 8px 20px -4px rgba(109,40,217,0.13);
+      border-color: #a855f7;
+    }
+    .sc-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem; flex-shrink: 0;
+    }
+    /* Disable 3D tilt on mobile — stacked single-column looks odd when tilted */
+    @media (max-width: 767px) {
+      #services-card-wrapper { transform: none !important; }
+      #services-header      { transform: none !important; }
+    }
   </style>
 </head>
 <body class="bg-white overflow-x-hidden">
@@ -180,7 +224,7 @@
   </section>
 
   <!-- ════════ SAI MARUVADA ════════ -->
-  <section class="py-16">
+  <section class="pt-8 py-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-10 items-start">
       <!-- Photo grid -->
       <div class="flex-shrink-0 w-full md:w-[340px]">
@@ -494,42 +538,62 @@
   </section>
 
   <!-- ════════ EVERYTHING YOU NEED ════════ -->
-  <section class="py-16">
+  <section id="services-scroll-section" class="py-20 md:py-32 overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 md:px-8 text-center">
-      <h2 class="font-bold text-gray-900 mb-3 text-2xl md:text-[30px]">Everything You Need</h2>
-      <p class="text-gray-500 text-sm mb-12 leading-relaxed">Personalized college counseling to develop the edge<br>you need to get into your dream school.</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-        <div class="bg-gray-950 rounded-2xl p-6">
-          <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-          </div>
-          <h3 class="text-white font-semibold text-sm mb-3">Application Strategy</h3>
-          <p class="text-gray-400 text-xs leading-relaxed">We help you build a cohesive application narrative that connects your academics, activities, and story. No more scattered resumes. Just one powerful thread that admissions officers actually remember.</p>
-        </div>
+      <div id="services-header" style="will-change:transform;">
+        <p class="text-xs text-indigo-500 uppercase tracking-widest font-semibold mb-3">What We Offer</p>
+        <h2 class="font-bold text-gray-900 mb-4 text-2xl md:text-[32px] leading-tight">Everything You Need</h2>
+        <p class="text-gray-500 text-sm mb-14 leading-relaxed max-w-md mx-auto">Personalized college counseling to develop the edge<br>you need to get into your dream school.</p>
+      </div>
 
-        <div class="bg-gray-950 rounded-2xl p-6">
-          <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-            </svg>
-          </div>
-          <h3 class="text-white font-semibold text-sm mb-3">Essay &amp; Writing Coaching</h3>
-          <p class="text-gray-400 text-xs leading-relaxed">From Common App to supplementals, we craft essays that are authentically you and strategically sharp. Our counselors know what top schools look for because they got in themselves.</p>
-        </div>
+      <div style="perspective:1200px; perspective-origin:50% 0%;">
+        <div id="services-card-wrapper">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8 text-left">
 
-        <div class="bg-gray-950 rounded-2xl p-6">
-          <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
-            </svg>
+            <div class="sc-lift">
+              <div class="sc-card">
+                <div class="sc-icon">
+                  <svg class="w-5 h-5 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                  </svg>
+                </div>
+                <div class="inline-block bg-violet-50 text-violet-600 text-[10px] font-semibold px-2.5 py-1 rounded-full mb-3 uppercase tracking-wide">Strategy</div>
+                <h3 class="text-gray-900 font-semibold text-[15px] mb-2.5">Application Strategy</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">We help you build a cohesive application narrative that connects your academics, activities, and story. No more scattered resumes. Just one powerful thread that admissions officers actually remember.</p>
+              </div>
+            </div>
+
+            <div class="sc-lift">
+              <div class="sc-card">
+                <div class="sc-icon">
+                  <svg class="w-5 h-5 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                  </svg>
+                </div>
+                <div class="inline-block bg-violet-50 text-violet-600 text-[10px] font-semibold px-2.5 py-1 rounded-full mb-3 uppercase tracking-wide">Writing</div>
+                <h3 class="text-gray-900 font-semibold text-[15px] mb-2.5">Essay &amp; Writing Coaching</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">From Common App to supplementals, we craft essays that are authentically you and strategically sharp. Our counselors know what top schools look for because they got in themselves.</p>
+              </div>
+            </div>
+
+            <div class="sc-lift">
+              <div class="sc-card">
+                <div class="sc-icon">
+                  <svg class="w-5 h-5 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                  </svg>
+                </div>
+                <div class="inline-block bg-violet-50 text-violet-600 text-[10px] font-semibold px-2.5 py-1 rounded-full mb-3 uppercase tracking-wide">Interview</div>
+                <h3 class="text-gray-900 font-semibold text-[15px] mb-2.5">Interview Preparation</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">From scholarship panels to honors college conversations, we run realistic mock sessions and give targeted feedback so you walk in confident and walk out memorable.</p>
+              </div>
+            </div>
+
           </div>
-          <h3 class="text-white font-semibold text-sm mb-3">Interview Preparation</h3>
-          <p class="text-gray-400 text-xs leading-relaxed">From scholarship panels to honors college conversations, we run realistic mock sessions and give targeted feedback so you walk in confident and walk out memorable.</p>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -666,6 +730,36 @@
   </footer>
 
   <script>
+    /* ── ContainerScroll-style animation for service cards ── */
+    (function() {
+      var section = document.getElementById('services-scroll-section');
+      var wrapper = document.getElementById('services-card-wrapper');
+      var header  = document.getElementById('services-header');
+      if (!section || !wrapper) return;
+
+      function update() {
+        var rect  = section.getBoundingClientRect();
+        var secH  = section.offsetHeight;
+        var winH  = window.innerHeight;
+        // 0 = section entering at bottom of viewport, 1 = section fully scrolled past
+        var p = Math.max(0, Math.min(1, (winH - rect.top) / (secH + winH)));
+        var rotate = 20 * (1 - p);           // 20deg → 0deg
+        var scale  = 1.05 - 0.05 * p;        // 1.05 → 1.0
+        wrapper.style.transform = 'rotateX(' + rotate + 'deg) scale(' + scale + ')';
+        if (header) header.style.transform = 'translateY(' + (-80 * p) + 'px)';
+      }
+
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() { update(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+
     (function() {
       const patReveal = document.getElementById('grid-reveal');
       const revealEl  = document.getElementById('hero-reveal-layer');
