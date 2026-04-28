@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tailwindcss -i ./input.css -o ./tailwind.css --minify",
+    "watch": "tailwindcss -i ./input.css -o ./tailwind.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +13,17 @@
   "type": "commonjs",
   "dependencies": {
     "puppeteer": "^24.42.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishna-kasuganti/dual-admit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krishna-kasuganti/dual-admit/issues"
+  },
+  "homepage": "https://github.com/krishna-kasuganti/dual-admit#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "tailwindcss": "^4.2.4"
   }
 }
